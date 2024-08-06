@@ -28,7 +28,21 @@ Output: []
  * @return {ListNode}
  */
 var reverseList = function (head) {
+  let prev = null;
+  let next = null;
+  let curr = head;
 
+  while (curr) {
+    next = curr.next;
+    curr.next = prev;
+
+    prev = curr;
+    curr = next;
+  }
+
+  return prev;
 };
 
-console.log(reverseList([1,2,3,4,5]));
+console.log(reverseList([1, 2, 3, 4, 5])); // [5,4,3,2,1]
+console.log(reverseList([1, 2])); // [2,1]
+console.log(reverseList([])); // []
