@@ -16,6 +16,8 @@ Input: head = []
 Output: []
  */
 
+const { arrayToLinkedList, printLinkedList } = require("../../linkedList");
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
@@ -43,6 +45,6 @@ var reverseList = function (head) {
   return prev;
 };
 
-console.log(reverseList([1, 2, 3, 4, 5])); // [5,4,3,2,1]
-console.log(reverseList([1, 2])); // [2,1]
-console.log(reverseList([])); // []
+printLinkedList(reverseList(arrayToLinkedList([1, 2, 3, 4, 5]))); // [5,4,3,2,1]
+printLinkedList(reverseList(arrayToLinkedList([1, 2]))); // [2,1]
+printLinkedList(reverseList(arrayToLinkedList([]))); // []
