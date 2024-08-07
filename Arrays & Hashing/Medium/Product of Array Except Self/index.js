@@ -16,18 +16,23 @@ Output: [0,0,9,0,0]
 
 // wip
 
-// var productExceptSelf = function (nums) {
-//   let prefix = [1];
-//   let postfix = [1];
-//   answer = [];
+var productExceptSelf = function (nums) {
+  let output = [];
+  let prefix = 1;
+  let postfix = 1;
 
-//   for (let i = 1; i < nums.length; i++) {
-//     prefix[i - 1] *= nums[i];
-//   }
+  for (let i = 0; i < nums.length; i++) {
+    output[i] = prefix;
+    prefix *= nums[i];
+  }
 
-//   for (let i = nums.length - 1; i >= 0; i--) {
-//     postfix[i - 1] *= nums[i];
-//   }
+  for (let i = nums.length - 2; i >= 0; i--) {
+    postfix *= nums[i + 1];
+    output[i] *= postfix;
+  }
 
-//   return answer;
-// };
+  return output;
+};
+
+console.log(productExceptSelf([1, 2, 3, 4])); // [ 24, 12, 8, 6 ]
+console.log(productExceptSelf([-1, 1, 0, -3, 3])); // [ 0, 0, 9, 0, 0 ]
