@@ -23,6 +23,10 @@ Input: s = "dvdf"
 Output: 3
 */
 
+/**
+ * @param {string} s 
+ * @returns {number}
+ */
 var lengthOfLongestSubstring = function (s) {
   let leftIndex = 0;
   let charSet = new Set();
@@ -40,7 +44,7 @@ var lengthOfLongestSubstring = function (s) {
   return res;
 };
 
-console.log("test case 1: ", lengthOfLongestSubstring("abcabcbb"));
-console.log("test case 2: ", lengthOfLongestSubstring("bbbbb"));
-console.log("test case 3: ", lengthOfLongestSubstring("pwwkew"));
-console.log("test case 4: ", lengthOfLongestSubstring("dvdf"));
+console.log("test case 1: ", lengthOfLongestSubstring("abcabcbb")); // 3
+console.log("test case 2: ", lengthOfLongestSubstring("bbbbb")); // 1
+console.log("test case 3: ", lengthOfLongestSubstring("pwwkew")); // 3
+console.log("test case 4: ", lengthOfLongestSubstring("dvdf")); // 3

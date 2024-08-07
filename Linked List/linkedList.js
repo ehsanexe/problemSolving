@@ -5,6 +5,10 @@ class Node {
   }
 }
 
+/**
+ * @param {number[]} arr 
+ * @returns {Node}
+ */
 function arrayToLinkedList(arr) {
   if (arr.length === 0) return null; // Return null if the array is empty
 
@@ -21,6 +25,9 @@ function arrayToLinkedList(arr) {
   return head;
 }
 
+/**
+ * @param {Node} head 
+ */
 function printLinkedList(head) {
   let current = head;
   let output = "";

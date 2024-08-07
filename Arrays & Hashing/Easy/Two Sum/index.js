@@ -17,6 +17,11 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 */
 
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @returns {number[]}
+ */
 var twoSum = function (nums, target) {
   let hashmap = {};
 
@@ -31,6 +36,6 @@ var twoSum = function (nums, target) {
   }
 };
 
-console.log("test case 1: ", twoSum([2, 7, 11, 15], 9));
-console.log("test case 2: ", twoSum([3, 2, 4], 6));
-console.log("test case 3: ", twoSum([3, 3], 6));
+console.log("test case 1: ", twoSum([2, 7, 11, 15], 9)); // [0,1]
+console.log("test case 2: ", twoSum([3, 2, 4], 6)); // [1,2]
+console.log("test case 3: ", twoSum([3, 3], 6)); // [0,1]
