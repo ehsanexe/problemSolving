@@ -13,30 +13,31 @@ Output: [1]
  */
 
 /**
+O (n log n) solution:
+var topKFrequent = function (nums, k) {
+  const map = {};
+
+  for (const n of nums) {
+    map[n] = (map[n] ?? 0) + 1;
+  }
+
+  const freq = [];
+  for (const key in map) {
+    freq.push({ key, val: map[key] });
+  }
+
+  return freq
+    .sort((a, b) => b.val - a.val)
+    .slice(0, k)
+    .map((f) => parseInt(f.key));
+};
+ */
+
+/**
  * @param {number[]} nums
  * @param {number} k
  * @return {number[]}
  */
-// var topKFrequent = function (nums, k) {
-//   const map = {};
-
-//   for (const n of nums) {
-//     map[n] = (map[n] ?? 0) + 1;
-//   }
-
-//   const freq = [];
-//   for (const key in map) {
-//     freq.push({ key, val: map[key] });
-//   }
-
-//   return freq
-//     .sort((a, b) => b.val - a.val)
-//     .slice(0, k)
-//     .map((f) => parseInt(f.key));
-// };
-
-// todo- this solution is O(NLogN), there is a batter to solve this using bucket sort
-
 var topKFrequent = function (nums, k) {
   const map = {};
   const bucket = Array.from({ length: nums.length + 1 }, () => []);
