@@ -24,7 +24,7 @@ function encode(strs) {
   let res = "";
 
   for (s of strs) {
-    res += s.length + "#" + s;
+    res += `${s.length}#${s}`;
   }
 
   return res;
@@ -36,19 +36,34 @@ function encode(strs) {
  */
 function decode(str) {
   const res = [];
-  for (let i = 1; i < str.length; i++) {
-    if (str[i] === "#") {
-      res.push(str.slice(i + 1, i + 1 + +str[i - 1]));
+
+  let i = 0;
+
+  while (i < str.length) {
+    let j = i;
+
+    while (str[j] !== "#") {
+      j++;
     }
+    const length = parseInt(str.substring(i, j));
+
+    j++;
+    res.push(str.slice(j, j + length));
+    j = j + length;
+    i = j;
   }
 
   return res;
 }
 
-let encoded = encode(["neet", "code", "love", "you"]);
+let encoded = encode(["neet", "code", "lov#4e", "you"]);
 let decoded = decode(encoded);
 console.log({ encoded, decoded });
 
 encoded = encode(["we", "say", ":", "yes"]);
+decoded = decode(encoded);
+console.log({ encoded, decoded });
+
+encoded = encode(["10characters1234567890", "3#@#$#$%"]);
 decoded = decode(encoded);
 console.log({ encoded, decoded });
